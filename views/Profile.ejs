@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Profile</h1>
+
+    Hi <%=username%>, you are welcome here
+<br><br>
+    <a href="/logout">Logout</a>
+    <br><br>
+    <form action="searchact" method="post">
+    <input type="text" name="search" id="" placeholder="Enter your name">
+    <button type="submit">Search</button>
+</form>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>District</th>
+        <th>Contact Number</th>
+        <th>Email ID</th>
+    </tr>
+    <% if(data.length>0){ %>
+    <% for(var i=0; i<data.length; i++){%>
+    <tr>
+   
+      <td><%= data[i].name %></td>
+        <td><%= data[i].district %></td>
+        <td><%= data[i].number %></td>
+        <td><%= data[i].mail %></td>
+        
+    </tr>
+
+    <% } %>
+    <% } else { %>
+    Data not found...!
+<% } %>
+</table>
+
+</body>
+</html>
